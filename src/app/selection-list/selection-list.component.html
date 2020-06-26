@@ -1,0 +1,19 @@
+<mat-grid-list cols="4" rowHeight="50px">
+  <mat-grid-tile rowspan='1' colspan='3'>
+    <mat-form-field class="full-width">
+      <mat-label>add task text</mat-label>
+      <input matInput type="text" #todoInput>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile rowspan='1' colspan='1'>
+    <button (click)="addElement(todoInput)" mat-raised-button class='green'>Add</button>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-selection-list>
+  <mat-list-option *ngFor="let item of listOfItems" (click)='toggleClass(item)' [ngClass]="{'through': !item.active}">
+    {{item.name}}
+    <mat-divider></mat-divider>
+  </mat-list-option>
+</mat-selection-list>
